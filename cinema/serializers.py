@@ -30,6 +30,16 @@ class CinemaHallSerializer(serializers.ModelSerializer):
         fields = ("id", "name", "rows", "seats_in_row", "capacity")
 
 
+class MovieImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Movie
+        fields = ("id", "image")
+        read_only_fields = ("id",)
+        extra_kwargs = {
+            "image": {"required": True},
+        }
+
+
 class MovieSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(read_only=True)
 
