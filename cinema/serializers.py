@@ -68,6 +68,7 @@ class MovieListSerializer(MovieSerializer):
 class MovieDetailSerializer(MovieSerializer):
     genres = GenreSerializer(many=True, read_only=True)
     actors = ActorSerializer(many=True, read_only=True)
+
     class Meta:
         model = Movie
         fields = (
@@ -97,7 +98,6 @@ class MovieSessionListSerializer(MovieSessionSerializer):
     )
     tickets_available = serializers.IntegerField(read_only=True)
     movie_image = serializers.ImageField(source="movie.image", read_only=True)
-
 
     class Meta:
         model = MovieSession

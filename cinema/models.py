@@ -46,6 +46,7 @@ def create_custom_path(instance, filename):
         f"{slugify(instance.title)}-{uuid.uuid4()}{extension}"
     )
 
+
 class Movie(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
@@ -63,7 +64,6 @@ class Movie(models.Model):
 
     class Meta:
         ordering = ["title"]
-
 
 
 class MovieSession(models.Model):
